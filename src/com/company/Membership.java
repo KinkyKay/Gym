@@ -42,4 +42,42 @@ public class Membership {
     }
 
 
+    public void displayPrice(String s) {
+        switch (s) {
+            case "GOLDMEMBERSHIP":
+                System.out.println("You've chosen the Goldmembership. This membership costs 100 €.");
+                break;
+            case "GROUPMEMBERSHIP":
+                System.out.println("You've chosen the Groupmembership. This membership costs 50 €");
+                break;
+            case "FITNESSMEMBERSHIP":
+                System.out.println("You've chosen the Fitnessmembership. This membership costs 75 €");
+                break;
+            case "WEEKENDMEMBERSHIP":
+                System.out.println("You've chosen the Weekendmembership. This membership costs 25 €");
+            default:
+                System.out.println("Please select your type of membership");
+        }
+    }
+
+    public void displayTypeMembership(TypeMembership typeMembership) {
+        switch (typeMembership) {
+            case GOLDMEMBERSHIP:
+                System.out.println("You've chosen the Goldmembership. This membership costs 100 €.");
+                break;
+            case FITNESSMEMBERSHIP:
+                System.out.println("You've chosen the Fitnessmembership. This membership costs 75€.");
+                break;
+            case GROUPMEMBERSHIP:
+                System.out.println("You've chosen the Groupmembership. This membership costs costs 50 €.");
+                break;
+            case WEEKENDMEMBERSHIP:
+                System.out.println("You've chosen the Weekendmembership. This membership costs 25 €.");
+                break;
+            default:
+                System.out.println("Please select your type of membership");
+
+        }
+    }
+
 }

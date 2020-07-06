@@ -65,7 +65,7 @@ public class Gym {
 
     public void addListMember(Member m) {
         this.memberList.add(m);
-        System.out.println("member " + toString());
+        System.out.println("member " +m.getMemberName().toString());
         for(int i = 0; i < memberList.size(); i++) {
             System.out.println(memberList.get(i).getMemberName());
         }
