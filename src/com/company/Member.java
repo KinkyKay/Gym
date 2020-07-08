@@ -1,6 +1,12 @@
 package com.company;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLOutput;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Member {
@@ -86,4 +92,24 @@ public class Member {
     public void viewMember(){
         System.out.println(" is a member "+ membership.getMembershipStartDate());
     }
+
+    public void memberTimeLog (LocalTime entryTime, LocalTime exitTime, LocalDate timeLogDate){
+        String directory = System.getProperty("user.home");
+        String fileName = "MemberTimeLog.txt";
+        String absolutePath = directory + File.separator + fileName;
+        DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String ldtString = FORMAT.format(timeLogDate);
+
+
+        try {
+            FileWriter fileWriter = new FileWriter(absolutePath, true);
+            String fileContent = ldtString + " IN " + entryTime + " " + getMemberName() + " OUT " + exitTime + "\n";
+            fileWriter.append(fileContent);
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("another problem with IO");
+        }
+    }
+
+
 }

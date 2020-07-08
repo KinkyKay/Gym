@@ -178,6 +178,7 @@ public class Schedule {
                 }
             default:
                 System.out.println("Please select the day you want to go to the gym");
+                return false;
         }
     }
 }
