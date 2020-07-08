@@ -1,10 +1,11 @@
 package com.company;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Membership {
-    private Date membershipStartDate;
-    private Date membershipEndDate;
+    private LocalDate membershipStartDate;
+    private LocalDate membershipEndDate;
     private double membershipPrice;
     private TypeMembership typeMembership;
 
@@ -16,23 +17,6 @@ public class Membership {
         this.typeMembership = typeMembership;
     }
 
-
-    public Date getMembershipStartDate() {
-        return membershipStartDate;
-    }
-
-    public void setMembershipStartDate(Date membershipStartDate) {
-        this.membershipStartDate = membershipStartDate;
-    }
-
-    public Date getMembershipEndDate() {
-        return membershipEndDate;
-    }
-
-    public void setMembershipEndDate(Date membershipEndDate) {
-        this.membershipEndDate = membershipEndDate;
-    }
-
     public double getMembershipPrice() {
         return membershipPrice;
     }
@@ -40,6 +24,23 @@ public class Membership {
     public void setMembershipPrice(double membershipPrice) {
         this.membershipPrice = membershipPrice;
     }
+
+    public LocalDate getMembershipStartDate() {
+        return membershipStartDate;
+    }
+
+    public void setMembershipStartDate(LocalDate membershipStartDate) {
+        this.membershipStartDate = membershipStartDate;
+    }
+
+    public LocalDate getMembershipEndDate() {
+        return membershipEndDate;
+    }
+
+    public void setMembershipEndDate(LocalDate membershipEndDate) {
+        this.membershipEndDate = membershipEndDate;
+    }
+
 
 
     public void displayPrice(String s) {

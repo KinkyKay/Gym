@@ -1,19 +1,19 @@
 package com.company;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Payments {
     private boolean paymentStatus;
     private PaymentOptions paymentOptions;
-    private Date paymentLastDate;
+    private LocalDate paymentLastDate;
 
 
-
-    public Date getPaymentLastDate() {
+    public LocalDate getPaymentLastDate() {
         return paymentLastDate;
     }
 
-    public void setPaymentLastDate(Date paymentLastDate) {
+    public void setPaymentLastDate(LocalDate paymentLastDate) {
         this.paymentLastDate = paymentLastDate;
     }
 
@@ -34,5 +34,13 @@ public class Payments {
         this.paymentStatus = paymentStatus;
     }
 
+    public LocalDate myPaymentLastDate() {
+        return LocalDate.now();
+    }
 
+    public void myPaymentLastDate(LocalDate ldt) {
+        paymentLastDate = ldt;
+        System.out.println("Last day payed = " + paymentLastDate);
+    }
 }
+

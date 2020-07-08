@@ -1,13 +1,14 @@
 package com.company;
 
 import java.awt.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Gym {
     private Boolean open;
-    private Date openingHours;
+    private LocalDateTime openingHours;
     private List<Member> memberList = new ArrayList<>();
     private Payments payments;
     private Membership membership;
@@ -46,7 +47,6 @@ public class Gym {
         this.memberList = memberList;
     }
 
-
     public Boolean getOpen() {
         return open;
     }
@@ -55,13 +55,16 @@ public class Gym {
         this.open = open;
     }
 
-    public Date getOpeningHours() {
+    public LocalDateTime getOpeningHours() {
         return openingHours;
     }
 
-    public void setOpeningHours(Date openingHours) {
+    public void setOpeningHours(LocalDateTime openingHours) {
         this.openingHours = openingHours;
     }
+
+
+
 
     public void addListMember(Member m) {
         this.memberList.add(m);

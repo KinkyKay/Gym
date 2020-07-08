@@ -1,5 +1,7 @@
 package com.company;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,7 +10,6 @@ public class Main {
             m.setMemberName("Steven");
             m.setMemberGender(Gender.M);
             System.out.println(m.getMemberGender().getDescriptionGender());
-
         Member k = new Member();
             k.setMemberName("Kim");
             k.setMemberGender(Gender.X);
@@ -16,6 +17,8 @@ public class Main {
         Payments p = new Payments();
             p.setPaymentOptions(PaymentOptions.BANKTRANSFER);
             System.out.println(m.testPayment());
+            LocalDate ld = LocalDate.of(2020,7,6);
+            p.myPaymentLastDate(ld);
 
         Gym gym = new Gym();
             gym.addListMember(m);
@@ -32,6 +35,10 @@ public class Main {
             mShip.displayPrice(mShip.getTypeMembership().toString());
             // de methode hieronder heeft de zelfde uitvoer als de methode hierboven
             mShip.displayTypeMembership(TypeMembership.FITNESSMEMBERSHIP);
+            mShip.setMembershipStartDate(ld);
+                System.out.println("Your membership starts on " + mShip.getMembershipStartDate());
+            mShip.setMembershipEndDate(ld = ld.plusMonths(6));
+                System.out.println("Your membership ends on " + mShip.getMembershipEndDate());
 
         //if (m.getMembership().getTypeMembership().name().equals(TypeMembership.goldMembership)) {
         //    System.out.println("test");
