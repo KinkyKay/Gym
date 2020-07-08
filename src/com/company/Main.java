@@ -1,6 +1,7 @@
 package com.company;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Main {
 
@@ -10,9 +11,13 @@ public class Main {
             m.setMemberName("Steven");
             m.setMemberGender(Gender.M);
             System.out.println(m.getMemberGender().getDescriptionGender());
+            m.setMemberName("David");
+
+
         Member k = new Member();
             k.setMemberName("Kim");
             k.setMemberGender(Gender.X);
+
 
         Payments p = new Payments();
             p.setPaymentOptions(PaymentOptions.BANKTRANSFER);
@@ -40,13 +45,11 @@ public class Main {
             mShip.setMembershipEndDate(ld = ld.plusMonths(6));
                 System.out.println("Your membership ends on " + mShip.getMembershipEndDate());
 
-        //if (m.getMembership().getTypeMembership().name().equals(TypeMembership.goldMembership)) {
-        //    System.out.println("test");
-        //}
-
-
-        //volgorde voor uitprint
-
+        LocalDate timeLogDate = LocalDate.now();
+        LocalTime entryTime = LocalTime.of(8,30);
+        LocalTime exitTime = LocalTime.of(10,30);
+        m.memberTimeLog(entryTime,exitTime,timeLogDate);
+        k.memberTimeLog(entryTime,exitTime,timeLogDate);
 
     }
 }
