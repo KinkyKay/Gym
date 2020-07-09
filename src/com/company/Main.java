@@ -51,5 +51,7 @@ public class Main {
         m.memberTimeLog(entryTime,exitTime,timeLogDate);
         k.memberTimeLog(entryTime,exitTime,timeLogDate);
 
+
+
     }
 }
