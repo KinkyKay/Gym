@@ -15,14 +15,15 @@ public class Main {
         Facility f = new Facility();
             f.addMaxCapacity("sauna", 5);
 
+        Pool p = new Pool();
+        p.access(true);
+        p.emergencyProtocol();
+
         LocalDate dateSchedule = LocalDate.now();
 
-        Schedule s = new Schedule();
-        s.setMondayOpen(LocalTime.of(9,0));
-        s.setMondayClosed(LocalTime.of(23,0));
-        s.setThursdayOpen(LocalTime.of(9,0));
-        s.setThursdayClosed(LocalTime.of(23,0));
-        System.out.println(s.isOpen(LocalTime.of(8,30), LocalDate.now()));
+        Schedule s = initializeSchedule(LocalTime.of(9,0), LocalTime.of(19,0));
+
+        //System.out.println(s.isOpen(LocalTime.of(8,30), LocalDate.now()));
         boolean OpenClosed = s.isOpen(LocalTime.of(8,30),LocalDate.of(2020, 7, 6));
 
         if(OpenClosed = true) {
@@ -74,5 +75,19 @@ public class Main {
         mShip.setMembershipEndDate(ld = ld.plusMonths(6));
         System.out.println("Your membership ends on " + mShip.getMembershipEndDate());
 
+    }
+
+    public static Schedule initializeSchedule(LocalTime open, LocalTime close){
+        Schedule s = new Schedule();
+        s.setMondayOpen(open);//LocalTime.of(9,0));
+        s.setMondayClosed(LocalTime.of(20,0));
+        //alle fields doen
+
+        s.setThursdayOpen(LocalTime.of(9,0));
+        s.setThursdayClosed(LocalTime.of(23,0));
+        s.setFridayOpen(open);
+        s.setFridayClosed(close);
+
+        return s;
     }
 }
