@@ -19,19 +19,25 @@ public class Main {
         p.access(true);
         p.emergencyProtocol();
 
+        Sauna sauna = new Sauna();
+        sauna.changeTemp(false);
+        sauna.degrees(70);
+
         LocalDate dateSchedule = LocalDate.now();
 
-        Schedule s = initializeSchedule(LocalTime.of(9,0), LocalTime.of(19,0));
+        Schedule s = initializeWeekSchedule(LocalTime.of(9,0), LocalTime.of(22,0));
+        //Waarom niet Schedule s1 =
+        initializeWeekendSchedule(LocalTime.of(9,30), LocalTime.of(23,0));
 
         //System.out.println(s.isOpen(LocalTime.of(8,30), LocalDate.now()));
         boolean OpenClosed = s.isOpen(LocalTime.of(8,30),LocalDate.of(2020, 7, 6));
+
 
         if(OpenClosed = true) {
             System.out.println("The facility is open.");
         } else {
             System.out.println("The facility is closed");
         }
-
 
     }
 
@@ -77,17 +83,28 @@ public class Main {
 
     }
 
-    public static Schedule initializeSchedule(LocalTime open, LocalTime close){
+    public static Schedule initializeWeekSchedule(LocalTime open, LocalTime close){
         Schedule s = new Schedule();
         s.setMondayOpen(open);//LocalTime.of(9,0));
-        s.setMondayClosed(LocalTime.of(20,0));
-        //alle fields doen
-
-        s.setThursdayOpen(LocalTime.of(9,0));
-        s.setThursdayClosed(LocalTime.of(23,0));
+        s.setMondayClosed(close);
+        s.setTuesdayOpen(open);
+        s.setTuesdayClosed(close);
+        s.setWednesdayOpen(open);
+        s.setWednesdayClosed(close);
+        s.setThursdayOpen(open);
+        s.setThursdayClosed(close);
         s.setFridayOpen(open);
         s.setFridayClosed(close);
-
         return s;
     }
+
+    public static Schedule initializeWeekendSchedule(LocalTime open, LocalTime close) {
+        Schedule s1 = new Schedule();
+        s1.setSaterdayOpen(open);
+        s1.setSaterdayClosed(close);
+        s1.setSundayOpen(open);
+        s1.setSundayClosed(close);
+        return s1;
+    }
+
 }
