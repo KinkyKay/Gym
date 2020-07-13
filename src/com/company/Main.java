@@ -12,6 +12,7 @@ public class Main {
         Location l = new Location();
             l.setLocationName("Room 2");
 
+
         Facility f = new Facility();
             f.addMaxCapacity("sauna", 5);
 
@@ -25,11 +26,8 @@ public class Main {
 
         LocalDate dateSchedule = LocalDate.now();
 
-        Schedule s = initializeWeekSchedule(LocalTime.of(9,0), LocalTime.of(22,0));
-        //Waarom niet Schedule s1 =
-        initializeWeekendSchedule(LocalTime.of(9,30), LocalTime.of(23,0));
+        Schedule s = initializeWeekSchedule(LocalTime.of(9,0), LocalTime.of(22,0), LocalTime.of(9,30), LocalTime.of(23,0));
 
-        //System.out.println(s.isOpen(LocalTime.of(8,30), LocalDate.now()));
         boolean OpenClosed = s.isOpen(LocalTime.of(8,30),LocalDate.of(2020, 7, 6));
 
 
@@ -38,20 +36,40 @@ public class Main {
         } else {
             System.out.println("The facility is closed");
         }
-
     }
+
 
     public static void  initializeMember() {
         Member m = new Member();
         m.setMemberName("Steven");
-        m.setMemberName("David");
         m.setMemberGender(Gender.M);
+        m.setMemberAddress("Kerkstraat 16 , 9420 Erembodegem");
+        m.setMemberAge(40);
+        m.setMemberHealth("FIT");
+
         System.out.println(m.getMemberGender().getDescriptionGender());
+        System.out.println(m.getMemberName());
+        System.out.println(m.getMemberGender());
+        System.out.println(m.getMemberAddress());
+        System.out.println(m.getMemberAge());
+        System.out.println(m.getMemberHealth());
+        System.out.println(m.isMemberStatus());
+
 
         Member k = new Member();
         k.setMemberName("Kim");
         k.setMemberGender(Gender.X);
+        k.setMemberAge(37);
+        k.setMemberAddress("Provincieweg 248 , 9550 Herzele");
+        k.setMemberHealth("No Condition");
+
         System.out.println(k.getMemberGender().getDescriptionGender());
+        System.out.println(k.getMemberName());
+        System.out.println(k.getMemberGender());
+        System.out.println(k.getMemberAddress());
+        System.out.println(k.getMemberAge());
+        System.out.println(k.getMemberHealth());
+        System.out.println(k.isMemberStatus());
 
         LocalTime entryTime = LocalTime.of(8,30);
         LocalTime exitTime = LocalTime.of(10,30);
@@ -83,7 +101,7 @@ public class Main {
 
     }
 
-    public static Schedule initializeWeekSchedule(LocalTime open, LocalTime close){
+    public static Schedule initializeWeekSchedule(LocalTime open, LocalTime close, LocalTime weekendOpen, LocalTime weekendClosed){
         Schedule s = new Schedule();
         s.setMondayOpen(open);//LocalTime.of(9,0));
         s.setMondayClosed(close);
@@ -95,16 +113,13 @@ public class Main {
         s.setThursdayClosed(close);
         s.setFridayOpen(open);
         s.setFridayClosed(close);
+        s.setSaterdayOpen(weekendOpen);
+        s.setSaterdayClosed(weekendClosed);
+        s.setSundayOpen(weekendOpen);
+        s.setSundayClosed(weekendClosed);
         return s;
     }
 
-    public static Schedule initializeWeekendSchedule(LocalTime open, LocalTime close) {
-        Schedule s1 = new Schedule();
-        s1.setSaterdayOpen(open);
-        s1.setSaterdayClosed(close);
-        s1.setSundayOpen(open);
-        s1.setSundayClosed(close);
-        return s1;
-    }
+
 
 }
